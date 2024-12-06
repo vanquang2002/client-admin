@@ -1,0 +1,97 @@
+
+.booking-details {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    margin: 20px;
+}
+
+.booking-details h2,
+.booking-details h3,
+.booking-details h4 {
+    color: #0b2727;
+    margin-bottom: 10px;
+}
+
+.booking-details p {
+    font-size: 14px;
+    margin: 8px 0;
+}
+
+.booking-details .customer-info,
+.booking-details .booking-info {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+
+/* Styling specific to the customer info section */
+.booking-details .customer-info p {
+    color: #6e7074;
+}
+
+/* Styling specific to the booking info section */
+.booking-details .booking-info p {
+    color: #0b2727;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+h3 {
+    margin-top: 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #333;
+}
+.service-details table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.service-details table tbody tr:last-child td {
+    font-style: italic;
+    color: #555;
+    padding-top: 8px;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .booking-details {
+        margin: 10px;
+    }
+
+    .booking-details .customer-info,
+    .booking-details .booking-info,
+    .booking-details .room-details {
+        padding: 15px;
+    }
+
+    .booking-details .room-info p {
+        font-size: 12px;
+    }
+}

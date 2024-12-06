@@ -1,0 +1,50 @@
+/* src/components/sidebar.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.main-layout {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #2a42ba;  
+  }
+  
+  .sidebar h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: #4773ee;
+    padding : 10px;
+    text-align: center;
+    font-family: "Great Vibes", cursive;
+    font-size: 40px;
+    color: #f0efef;
+  }
+  
+  .sidebar .nav-link {
+    margin: 5px;
+    margin-left: 15px;
+    margin-right: 0px;
+    color: #fafafa;
+    padding : 8px 15px;
+  }
+  
+  .sidebar .nav-link.active {
+    font-weight: bold;
+    color: #d0d9da;
+    background-color: #223593;
+    border-top-left-radius:20px ;
+    border-bottom-left-radius:20px ;
+  }
+  
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+  }
+  

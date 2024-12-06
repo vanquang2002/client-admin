@@ -1,0 +1,22 @@
+.room-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .room-row {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .room-card {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    padding: 5px;
+    margin: 5px;
+    width: 70px;
+    height: 80px;
+    text-align: center;
+    font-size: 15px;
+  }
+  
+  

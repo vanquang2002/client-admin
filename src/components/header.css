@@ -1,0 +1,33 @@
+/* Align navbar items to the right */
+.navbar-nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-nav .nav-link {
+    margin-left: 20px;
+  }
+  
+  .navbar-nav .dropdown {
+    margin-left: 15px;
+  }
+  
+  /* Optional: For customizing icon sizes */
+  .navbar-nav .nav-link svg,
+  .navbar-nav .dropdown-toggle svg {
+    font-size: 1.5rem;
+  }
+  
+  /* Optional: Add some spacing between the icons and text */
+  .navbar-nav .nav-link,
+  .navbar-nav .dropdown-toggle {
+    gap: 5px;
+  }
+  
