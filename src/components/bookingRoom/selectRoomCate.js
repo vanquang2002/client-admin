@@ -19,7 +19,7 @@ const SelectRoomCategories = forwardRef(({ checkin, checkout, customerID, onQuan
 
     const fetchRoomData = async () => {
         try {
-            const roomCategoriesResponse = await axios.get('http://localhost:9999/roomCategories');
+            const roomCategoriesResponse = await axios.get('https://server-j956.onrender.com/roomCategories');
             const filteredRoomCategories = roomCategoriesResponse.data.filter(room => room.locationId._id === locationId);
             setRoomCategories(filteredRoomCategories);
 
