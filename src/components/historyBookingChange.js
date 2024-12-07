@@ -16,7 +16,7 @@ const HistoryBookingChange = () => {
     useEffect(() => {
         const fetchBookingHistory = async () => {
             try {
-                const response = await axios.get(`http://localhost:9999/histories/booking/${bookingId}`);
+                const response = await axios.get(`https://server-j956.onrender.com/histories/booking/${bookingId}`);
                 setHistory(response.data); // Giả sử API trả về một mảng lịch sử
             } catch (err) {
                 setError('Lỗi khi tải lịch sử đặt phòng');
