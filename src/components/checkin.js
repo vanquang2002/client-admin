@@ -31,15 +31,15 @@ const ListRoom = () => {
     }
 
     // Fetch room, location, and category data
-    axios.get('http://localhost:9999/rooms')
+    axios.get('https://server-j956.onrender.com/rooms')
       .then((response) => setRoomData(response.data))
       .catch((error) => console.error('Error fetching room data:', error));
 
-    axios.get('http://localhost:9999/locations')
+    axios.get('https://server-j956.onrender.com/locations')
       .then((response) => setLocation(response.data))
       .catch((error) => console.error('Error fetching locations:', error));
 
-    axios.get('http://localhost:9999/roomCategories')
+    axios.get('https://server-j956.onrender.com/roomCategories')
       .then((response) => setCategories(response.data))
       .catch((error) => console.error('Error fetching room categories:', error));
   }, []);
@@ -63,11 +63,11 @@ const ListRoom = () => {
         bookingId: id,
         status: 'Đang sử dụng',
       };
-      axios.put(`http://localhost:9999/rooms/${room._id}`,
+      axios.put(`https://server-j956.onrender.com/rooms/${room._id}`,
         updatedRoom
       )
 
-      axios.put(`http://localhost:9999/bookings/${id}`,
+      axios.put(`https://server-j956.onrender.com/bookings/${id}`,
         {
           status: 'Đã check-in',
         }
@@ -91,7 +91,7 @@ const ListRoom = () => {
     Promise.all(updates)
       .then(() => {
         // Refresh room data after updates
-        axios.get('http://localhost:9999/rooms')
+        axios.get('https://server-j956.onrender.com/rooms')
           .then((response) => setRoomData(response.data))
           .catch((error) => console.error('Error fetching updated room data:', error));
 
