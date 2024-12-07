@@ -213,7 +213,7 @@ const AddBookingForm = forwardRef(({ onBookingCreated, customerID, serviceAmount
             }));
 
             // Create the booking
-            const response = await axios.post('http://localhost:9999/bookings', {
+            const response = await axios.post('https://server-j956.onrender.com/bookings', {
                 ...bookingData,
                 price: finalPrice
             });
