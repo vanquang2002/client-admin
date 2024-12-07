@@ -340,7 +340,7 @@ const BookingDetails = () => {
 
             if (result.success) {  // Cập nhật từng orderRoom với số lượng mới
                 for (const [orderRoomId, quantity] of Object.entries(updatedQuantities)) {
-                    await axios.put(`http://localhost:9999/orderRooms/${orderRoomId}`, { quantity });
+                    await axios.put(`https://server-j956.onrender.com/orderRooms/${orderRoomId}`, { quantity });
                 }
                 // // Chờ tất cả các update hoàn thành
                 // await Promise.all(updatePromises);
@@ -418,8 +418,8 @@ const BookingDetails = () => {
         try {
             // Cập nhật giá tổng của booking
             const bookingId = orderRooms[0]?.bookingId?._id;
-            await axios.put(`http://localhost:9999/bookings/${bookingId}`, { price: price, contract: contractCode });
-            await axios.post('http://localhost:9999/histories/BE', { bookingId: bookingId, staffId: staff._id, note: `${staff.role} ${staff.fullname} đã cập nhật thông tin ` });
+            await axios.put(`https://server-j956.onrender.com/bookings/${bookingId}`, { price: price, contract: contractCode });
+            await axios.post('https://server-j956.onrender.com/histories/BE', { bookingId: bookingId, staffId: staff._id, note: `${staff.role} ${staff.fullname} đã cập nhật thông tin ` });
             setContractCode(orderRooms[0]?.bookingId?.contract || '');
             setPrice(orderRooms[0]?.bookingId?.price || 0)
             fetchBookingDetails();
