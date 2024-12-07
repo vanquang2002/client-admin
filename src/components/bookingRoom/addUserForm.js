@@ -102,7 +102,7 @@ const AddUserForm = forwardRef(({ }, ref) => {
         setLoading(true);
 
         try {
-            const response = await fetch('http://localhost:9999/customers', {
+            const response = await fetch('https://server-j956.onrender.com/customers', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
