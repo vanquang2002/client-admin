@@ -34,7 +34,7 @@ const ListCustomer = () => {
   // Lấy dữ liệu từ API
   useEffect(() => {
     axios
-      .get('http://localhost:9999/customers')
+      .get('https://server-j956.onrender.com/customers')
       .then((response) => setCustomerData(response.data))
       .catch((error) => console.error("Error fetching customer data:", error));
   }, []);
@@ -46,7 +46,7 @@ const ListCustomer = () => {
     console.log(customer);
     
     axios
-      .put(`http://localhost:9999/customers/${id}`,customer ) // Cập nhật trạng thái deactive thành true
+      .put(`https://server-j956.onrender.com/customers/${id}`,customer ) // Cập nhật trạng thái deactive thành true
       .then(() => {
         // Cập nhật lại trạng thái trong danh sách
         setCustomerData(
