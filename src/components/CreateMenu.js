@@ -34,7 +34,7 @@ const CreateMenu = () => {
         };
 
         try {
-            const res = await axios.post('http://localhost:9999/menus', newMenu);
+            const res = await axios.post('https://server-j956.onrender.com/menus', newMenu);
             setMessage('Menu created successfully!');
             const menuId = res.data._id;
             fetchMenuById(menuId);
@@ -50,7 +50,7 @@ const CreateMenu = () => {
 
     const fetchMenuById = async (menuId) => {
         try {
-            const res = await axios.get(`http://localhost:9999/menus/${menuId}`);
+            const res = await axios.get(`https://server-j956.onrender.com/menus/${menuId}`);
             setLatestMenu(res.data);
         } catch (error) {
             console.error('Failed to fetch menu by ID:', error);
@@ -61,7 +61,7 @@ const CreateMenu = () => {
         try {
             const updatedMenu = { ...latestMenu };
             updatedMenu.foodName.splice(foodIndex, 1);
-            await axios.put(`http://localhost:9999/menus/${latestMenu._id}`, updatedMenu);
+            await axios.put(`https://server-j956.onrender.com/menus/${latestMenu._id}`, updatedMenu);
             setLatestMenu(updatedMenu);
         } catch (error) {
             console.error('Failed to delete food item:', error);
@@ -79,7 +79,7 @@ const CreateMenu = () => {
         try {
             const updatedMenu = { ...latestMenu };
             updatedMenu.foodName[editFoodIndex] = newFoodName;
-            await axios.put(`http://localhost:9999/menus/${latestMenu._id}`, updatedMenu);
+            await axios.put(`https://server-j956.onrender.com/menus/${latestMenu._id}`, updatedMenu);
             setLatestMenu(updatedMenu);
             setEditFoodIndex(-1);
             setNewFoodName('');
@@ -94,7 +94,7 @@ const CreateMenu = () => {
         try {
             const updatedMenu = { ...latestMenu };
             updatedMenu.foodName.push(newFoodName);
-            await axios.put(`http://localhost:9999/menus/${latestMenu._id}`, updatedMenu);
+            await axios.put(`https://server-j956.onrender.com/menus/${latestMenu._id}`, updatedMenu);
             setLatestMenu(updatedMenu);
             setNewFoodName('');
         } catch (error) {
@@ -112,7 +112,7 @@ const CreateMenu = () => {
 
         try {
             const updatedMenu = { ...latestMenu, drinkName: newDrinkName };
-            await axios.put(`http://localhost:9999/menus/${latestMenu._id}`, updatedMenu);
+            await axios.put(`https://server-j956.onrender.com/menus/${latestMenu._id}`, updatedMenu);
             setLatestMenu(updatedMenu);
             setEditDrinkIndex(-1);
             setNewDrinkName('');
@@ -131,7 +131,7 @@ const CreateMenu = () => {
 
         try {
             const updatedMenu = { ...latestMenu, price: newPrice };
-            await axios.put(`http://localhost:9999/menus/${latestMenu._id}`, updatedMenu);
+            await axios.put(`https://server-j956.onrender.com/menus/${latestMenu._id}`, updatedMenu);
             setLatestMenu(updatedMenu);
             setEditPriceIndex(-1);
             setNewPrice('');
@@ -150,7 +150,7 @@ const CreateMenu = () => {
 
         try {
             const updatedMenu = { ...latestMenu, description: newDescription };
-            await axios.put(`http://localhost:9999/menus/${latestMenu._id}`, updatedMenu);
+            await axios.put(`https://server-j956.onrender.com/menus/${latestMenu._id}`, updatedMenu);
             setLatestMenu(updatedMenu);
             setEditDescriptionIndex(-1);
             setNewDescription('');
@@ -162,7 +162,7 @@ const CreateMenu = () => {
     const handleCleanAll = async () => {
         if (window.confirm('Are you sure you want to delete all menu items?')) {
             try {
-                await axios.delete(`http://localhost:9999/menus/${latestMenu._id}`);
+                await axios.delete(`https://server-j956.onrender.com/menus/${latestMenu._id}`);
                 setLatestMenu(null);
                 setMessage('All menu items have been deleted successfully.');
             } catch (error) {
