@@ -29,7 +29,7 @@ const ListOtherServices = () => {
 
     // Fetch data function
     const fetchData = () => {
-        axios.get("http://localhost:9999/otherServices")
+        axios.get("https://server-j956.onrender.com/otherServices")
             .then(response => {
                 setServices(response.data);
                 setFilteredServices(response.data);
@@ -128,8 +128,8 @@ const ListOtherServices = () => {
         if (!validateForm()) return; // Validate before proceeding
 
         const request = editingService
-            ? axios.put(`http://localhost:9999/otherServices/${editingService._id}`, newService)
-            : axios.post("http://localhost:9999/otherServices", newService);
+            ? axios.put(`https://server-j956.onrender.com/otherServices/${editingService._id}`, newService)
+            : axios.post("https://server-j956.onrender.com/otherServices", newService);
 
         request
             .then(response => {
@@ -176,7 +176,7 @@ const ListOtherServices = () => {
     const handleInactiveAndActive = async (id) => {
         try {
             // Tìm dịch vụ theo id
-            const service = await axios.get(`http://localhost:9999/otherServices/${id}`);
+            const service = await axios.get(`https://server-j956.onrender.com/otherServices/${id}`);
 
             // Kiểm tra xem dịch vụ có tồn tại không
             if (!service) {
@@ -188,7 +188,7 @@ const ListOtherServices = () => {
             }
 
             // Lật trạng thái isDeleted (nghĩa là chuyển từ true -> false hoặc ngược lại)
-            const updatedService = axios.delete(`http://localhost:9999/otherServices/${id}`)
+            const updatedService = axios.delete(`https://server-j956.onrender.com/otherServices/${id}`)
                 .then(() => {
                     fetchData()
                     if (!service.data.isDeleted) {
