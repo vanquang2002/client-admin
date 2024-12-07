@@ -70,9 +70,9 @@ const CreateBookingByStaff = () => {
     useEffect(() => {
         const fetchRoomCategoriesLocationsOtherService = async () => {
             try {
-                const roomCategoriesResponse = await axios.get('http://localhost:9999/roomCategories');
+                const roomCategoriesResponse = await axios.get('https://server-j956.onrender.com/roomCategories');
                 let filteredRoomCategories = roomCategoriesResponse.data;
-                const response = await axios.get('http://localhost:9999/otherServices');
+                const response = await axios.get('https://server-j956.onrender.com/otherServices');
                 const services = response.data.map(service => ({
                     otherServiceId: service._id,
                     name: service.name,
@@ -115,10 +115,10 @@ const CreateBookingByStaff = () => {
     useEffect(() => {
         const fetchRoomData = async () => {
             try {
-                const totalRoomsResponse = await axios.get('http://localhost:9999/rooms/category/totals');
+                const totalRoomsResponse = await axios.get('https://server-j956.onrender.com/rooms/category/totals');
                 setTotalRoomsByCategory(totalRoomsResponse.data.categoryTotals);
 
-                const bookedRoomsResponse = await axios.get(`http://localhost:9999/orderRooms/totalbycategory/?checkInDate=${bookingData.checkin}&checkOutDate=${bookingData.checkout}`);
+                const bookedRoomsResponse = await axios.get(`https://server-j956.onrender.com/orderRooms/totalbycategory/?checkInDate=${bookingData.checkin}&checkOutDate=${bookingData.checkout}`);
                 const bookedRoomsMap = {};
 
                 bookedRoomsResponse.data.forEach(item => {
@@ -358,11 +358,11 @@ const CreateBookingByStaff = () => {
             .replace(/\s+/g, ' ')
             .replace(/\b\w/g, (c) => c.toUpperCase());
             customerData.fullname = formattedValue;
-            const customerResponse = await axios.post('http://localhost:9999/customers', customerData);
+            const customerResponse = await axios.post('https://server-j956.onrender.com/customers', customerData);
             const newCustomerId = customerResponse.data._id;
 
             // Create the updated booking after setting the price
-            const bookingResponse = await axios.post('http://localhost:9999/bookings', {
+            const bookingResponse = await axios.post('https://server-j956.onrender.com/bookings', {
                 ...bookingData,
                 price: finalPrice // Ensure the price is sent as part of the booking
             });
@@ -384,7 +384,7 @@ const CreateBookingByStaff = () => {
             // Send order services data to the server
             const orderServicePromises = orderServicesData.map(service => {
                 if (service.serviceQuantity > 0) {
-                    return axios.post('http://localhost:9999/orderServices', {
+                    return axios.post('https://server-j956.onrender.com/orderServices', {
                         otherServiceId: service.otherServiceId,
                         bookingId: newBookingId,
                         quantity: service.serviceQuantity,
@@ -394,7 +394,7 @@ const CreateBookingByStaff = () => {
             });
 
             // Send identification data to the server
-            await axios.post('http://localhost:9999/identifycations', {
+            await axios.post('https://server-j956.onrender.com/identifycations', {
                 ...identifycationData,
                 customerID: newCustomerId
             });
