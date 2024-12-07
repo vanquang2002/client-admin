@@ -57,7 +57,7 @@ const ListMenu = () => {
   // Hàm lấy dữ liệu thực đơn từ API
   const fetchMenuData = () => {
     axios
-      .get("http://localhost:9999/menus")
+      .get("https://server-j956.onrender.com/menus")
       .then((response) => setMenuData(response.data))
       .catch((error) => console.error("Error fetching data:", error));
   };
@@ -97,7 +97,7 @@ const ListMenu = () => {
   const handleDelete = (id) => {
     // Gửi yêu cầu xóa đến API
     axios
-      .delete(`http://localhost:9999/menus/${id}`)
+      .delete(`https://server-j956.onrender.com/menus/${id}`)
       .then(() => {
         // Cập nhật lại danh sách sau khi xóa
         fetchMenuData();
@@ -117,7 +117,7 @@ const ListMenu = () => {
   // Hàm để xử lý chỉnh sửa thực đơn
   const handleEdit = () => {
     axios
-      .put(`http://localhost:9999/menus/${editedMenu._id}`, editedMenu)
+      .put(`https://server-j956.onrender.com/menus/${editedMenu._id}`, editedMenu)
       .then(() => {
         fetchMenuData(); // Lấy lại danh sách sau khi chỉnh sửa
         setShowModal(false);
