@@ -62,7 +62,7 @@ const ListStaffAccount = () => {
   // Fetch staff data from API
   useEffect(() => {
     axios
-      .get('http://localhost:9999/staffs')
+      .get('https://server-j956.onrender.com/staffs')
       .then((response) => setStaffData(response.data))
       .catch((error) => console.error("Error fetching staff data:", error));
   }, []);
@@ -120,7 +120,7 @@ if (!phoneRegex.test(newStaff.phone)) {
   // Handle delete staff
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:9999/staffs/${id}`)
+      .delete(`https://server-j956.onrender.com/staffs/${id}`)
       .then(() => {
         setStaffData(staffData.filter(staff => staff._id !== id));
       })
@@ -158,7 +158,7 @@ if (!phoneRegex.test(newStaff.phone)) {
   const handleCreateStaff = () => {
     if (validateInputs()) {
       axios
-        .post('http://localhost:9999/staffs', newStaff)
+        .post('https://server-j956.onrender.com/staffs', newStaff)
         .then((response) => {
           setStaffData([...staffData, response.data]);
           handleCloseModal();
@@ -185,7 +185,7 @@ if (!phoneRegex.test(newStaff.phone)) {
   const handleUpdateStaff = () => {
     if (validateInputs()) {
       axios
-        .put(`http://localhost:9999/staffs/${selectedStaff._id}`, newStaff)
+        .put(`https://server-j956.onrender.com/staffs/${selectedStaff._id}`, newStaff)
         .then((response) => {
           setStaffData(
             staffData.map(staff => staff._id === selectedStaff._id ? response.data : staff)
