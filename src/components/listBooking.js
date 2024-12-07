@@ -40,12 +40,12 @@ const ListBooking = () => {
       }
     }
     axios
-      .get("http://localhost:9999/orderRooms")
+      .get("https://server-j956.onrender.com/orderRooms")
       .then((response) => setBookings(response.data))
       .catch((error) => console.error("Error fetching bookings:", error));
 
     axios
-      .get('http://localhost:9999/locations')
+      .get('https://server-j956.onrender.com/locations')
       .then((response) => setLocation(response.data))
       .catch((error) => console.error('Error fetching locations:', error));
   }, []);
@@ -81,7 +81,7 @@ const ListBooking = () => {
     };
 
     axios
-      .put(`http://localhost:9999/bookings/${selectedBooking.bookingId._id}`, updatedBooking.bookingId)
+      .put(`https://server-j956.onrender.com/bookings/${selectedBooking.bookingId._id}`, updatedBooking.bookingId)
       .then((response) => {
         setBookings((prevBookings) =>
           prevBookings.map((booking) =>
@@ -97,7 +97,7 @@ const ListBooking = () => {
     booking.status = "Đã hủy";
     const bookingId = booking._id;
     axios
-      .put(`http://localhost:9999/bookings/${bookingId}`, booking)
+      .put(`https://server-j956.onrender.com/bookings/${bookingId}`, booking)
       .then((response) => {
         setBookings((prevBookings) =>
           prevBookings.map((booking) =>
