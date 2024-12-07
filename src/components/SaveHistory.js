@@ -29,11 +29,11 @@ const SaveHistory = () => {
             }
 
             // Fetch booking details
-            const bookingResponse = await axios.get(`http://localhost:9999/bookings/${bookingId}`);
+            const bookingResponse = await axios.get(`https://server-j956.onrender.com/bookings/${bookingId}`);
             const bookingData = bookingResponse.data;
 
             // Fetch related orderServices for the booking
-            const orderServicesResponse = await axios.get(`http://localhost:9999/orderServices/booking/${bookingId}`);
+            const orderServicesResponse = await axios.get(`https://server-j956.onrender.com/orderServices/booking/${bookingId}`);
             const orderServicesData = orderServicesResponse.data;
 
             // Prepare data to save in history
@@ -48,9 +48,9 @@ const SaveHistory = () => {
             };
 
             // Send the data to history
-            await axios.post('http://localhost:9999/histories', historyData);
+            await axios.post('https://server-j956.onrender.com/histories', historyData);
             // vd luu bang be
-            // await axios.post('http://localhost:9999/histories/BE', { bookingId: bookingId, staffId: user._id, note: "test BE" });
+            // await axios.post('https://server-j956.onrender.com/histories/BE', { bookingId: bookingId, staffId: user._id, note: "test BE" });
 
             // Navigate to the provided path
             if (path) {
