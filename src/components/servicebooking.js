@@ -24,7 +24,7 @@ const ServiceBookingList = () => {
 
   const fetchServiceBookings = async () => {
     try {
-      const response = await axios.get('http://localhost:9999/service-bookings');
+      const response = await axios.get('https://server-j956.onrender.com/service-bookings');
       setBookings(response.data || []);
       setFilteredBookings(response.data || []);
       setLoading(false);
@@ -73,7 +73,7 @@ const ServiceBookingList = () => {
 
   const handleStatusChange = async (bookingId, newStatus) => {
     try {
-      await axios.put(`http://localhost:9999/orderServices/${bookingId}`, {
+      await axios.put(`https://server-j956.onrender.com/orderServices/${bookingId}`, {
         status: newStatus,
       });
       const updatedBookings = bookings.map((booking) =>
