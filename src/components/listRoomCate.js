@@ -46,10 +46,10 @@ const ListRoomCate = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const roomCategoryResponse = await axios.get('http://localhost:9999/roomCategories');
+                const roomCategoryResponse = await axios.get('https://server-j956.onrender.com/roomCategories');
                 setRoomCategories(roomCategoryResponse.data);
 
-                const locationResponse = await axios.get('http://localhost:9999/locations');
+                const locationResponse = await axios.get('https://server-j956.onrender.com/locations');
                 setLocations(locationResponse.data);
 
 
@@ -89,7 +89,7 @@ const ListRoomCate = () => {
     // Handle delete room category
     const handleDelete = (id) => {
         axios
-            .delete(`http://localhost:9999/roomCategories/${id}`)
+            .delete(`https://server-j956.onrender.com/roomCategories/${id}`)
             .then(() => {
                 setRoomCategories(roomCategories.filter(roomCategory => roomCategory._id !== id));
             })
@@ -129,7 +129,7 @@ const ListRoomCate = () => {
     const handleCreateRoomCategory = () => {
         if (validateInputs()) {
             axios
-                .post('http://localhost:9999/roomCategories', newRoomCategory)
+                .post('https://server-j956.onrender.com/roomCategories', newRoomCategory)
                 .then((response) => {
                     setRoomCategories([...roomCategories, response.data]);
                     handleCloseModal();
@@ -158,7 +158,7 @@ const ListRoomCate = () => {
     const handleUpdateRoomCategory = () => {
         if (validateInputs()) {
             axios
-                .put(`http://localhost:9999/roomCategories/${selectedRoomCategory._id}`, newRoomCategory)
+                .put(`https://server-j956.onrender.com/roomCategories/${selectedRoomCategory._id}`, newRoomCategory)
                 .then((response) => {
                     setRoomCategories(
                         roomCategories.map(roomCategory => roomCategory._id === selectedRoomCategory._id ? response.data : roomCategory)
