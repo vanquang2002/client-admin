@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 
 // Kết nối tới server
-const socket = io("http://localhost:9999");
+const socket = io("https://server-j956.onrender.com");
 
 const App = () => {
   const [notifications, setNotifications] = useState([]);
