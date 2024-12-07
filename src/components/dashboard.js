@@ -32,7 +32,7 @@ const Dashboard = () => {
       }
     }
     axios
-      .get('http://localhost:9999/orderRooms')
+      .get('https://server-j956.onrender.com/orderRooms')
       .then((response) => setOrderData(response.data))
       .catch((error) => console.error('Error fetching order data:', error));
 
