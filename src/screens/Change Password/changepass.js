@@ -46,7 +46,7 @@ const ChangePassword = () => {
     try {
       const userId = JSON.parse(localStorage.getItem('user'))._id;
       await axios.put(
-        `http://localhost:9999/staffs/${userId}`,
+        `https://server-j956.onrender.com/staffs/${userId}`,
         { password: newPassword },
         {
           headers: {
