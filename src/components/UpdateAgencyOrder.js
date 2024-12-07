@@ -37,17 +37,17 @@ const UpdateAgencyOrder = forwardRef(({ customerID, locationId, bookingId, booki
     // Fetch room data from backend
     const fetchRoomData = async () => {
         try {
-            const roomCategoriesResponse = await axios.get('http://localhost:9999/roomCategories');
+            const roomCategoriesResponse = await axios.get('https://server-j956.onrender.com/roomCategories');
             const filteredRoomCategories = roomCategoriesResponse.data.filter(room => room.locationId._id === locationId);
             setRoomCategories(filteredRoomCategories);
 
-            const bookedRoomsResponse = await axios.get(`http://localhost:9999/orderRooms/totalbycategory/?checkInDate=${receiveRoom}&checkOutDate=${returnRoom}`);
+            const bookedRoomsResponse = await axios.get(`https://server-j956.onrender.com/orderRooms/totalbycategory/?checkInDate=${receiveRoom}&checkOutDate=${returnRoom}`);
             const bookedRoomsMap = {};
             bookedRoomsResponse.data.forEach(item => {
                 bookedRoomsMap[item.roomCateId] = item.totalRooms;
             });
 
-            const totalRoomsResponse = await axios.get('http://localhost:9999/rooms/category/totals');
+            const totalRoomsResponse = await axios.get('https://server-j956.onrender.com/rooms/category/totals');
             const initialRemainingRooms = {};
             totalRoomsResponse.data.categoryTotals.forEach(room => {
                 const totalRooms = room.totalRooms;
@@ -165,7 +165,7 @@ const UpdateAgencyOrder = forwardRef(({ customerID, locationId, bookingId, booki
             }
             // Create room orders
             const orderRoomPromises = selectedRooms.map(room => {
-                return axios.post('http://localhost:9999/orderRooms', {
+                return axios.post('https://server-j956.onrender.com/orderRooms', {
                     roomCateId: room.roomCateId,
                     customerId: customerID,
                     bookingId: bookingId,
@@ -176,7 +176,7 @@ const UpdateAgencyOrder = forwardRef(({ customerID, locationId, bookingId, booki
             });
             const newNotification = { content: "Đơn đặt phòng của khách đoàn đã được cập nhật." };
             axios
-                .post("http://localhost:9999/chats/send", newNotification)
+                .post("https://server-j956.onrender.com/chats/send", newNotification)
                 .then((response) => {
                     console.log(response.data);
                 })
