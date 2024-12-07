@@ -36,18 +36,18 @@ const UpdateBookingInfo = () => {
 
     // Fetch danh sách dịch vụ và các thông tin khác
     useEffect(() => {
-        axios.get('http://localhost:9999/otherServices')
+        axios.get('https://server-j956.onrender.com/otherServices')
             .then((response) => setOtherServices(response.data))
             .catch((error) => console.error('Error fetching services:', error));
 
         if (selectedBookingDetails) {
             // Lấy thông tin dịch vụ đã thêm trước đó
-            axios.get(`http://localhost:9999/orderServices/booking/${selectedBookingDetails.bookingId._id}`)
+            axios.get(`https://server-j956.onrender.com/orderServices/booking/${selectedBookingDetails.bookingId._id}`)
                 .then((response) => setOrderServicesData(response.data))
                 .catch((error) => console.error('Error fetching added services:', error));
 
             // Lấy thông tin từ orderRoom theo bookingId
-            axios.get(`http://localhost:9999/orderRooms/booking/${selectedBookingDetails.bookingId._id}`)
+            axios.get(`https://server-j956.onrender.com/orderRooms/booking/${selectedBookingDetails.bookingId._id}`)
                 .then((response) => setOrderRoomDetails(response.data)) // Lưu mảng orderRoom vào state
                 .catch((error) => console.error('Error fetching order room details:', error));
         }
@@ -117,11 +117,11 @@ const UpdateBookingInfo = () => {
             };
 
             // Update booking details
-            await axios.put(`http://localhost:9999/bookings/${selectedBookingDetails.bookingId._id}`, updatedBooking.bookingId);
+            await axios.put(`https://server-j956.onrender.com/bookings/${selectedBookingDetails.bookingId._id}`, updatedBooking.bookingId);
 
             // Add new services if any
             for (const service of addedServices) {
-                await axios.post('http://localhost:9999/orderServices', {
+                await axios.post('https://server-j956.onrender.com/orderServices', {
                     otherServiceId: service.otherServiceId._id,
                     bookingId: selectedBookingDetails.bookingId._id,
                     quantity: service.quantity,
