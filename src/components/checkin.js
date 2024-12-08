@@ -74,7 +74,7 @@ const ListRoom = () => {
       )
       const newNotification = { content: "Lễ tân đã check-in phòng" };
                 axios
-                .post("http://localhost:9999/chats/send", newNotification)
+                .post("https://server-j956.onrender.com/chats/send", newNotification)
                 .then((response) => {
                 console.log(response.data);
                 })
